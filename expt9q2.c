@@ -1,23 +1,24 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int main() {
     FILE *fp;
     char ch;
 
-    fp = fopen("myfile.txt", "r");
+    
+    fp = fopen("output.txt", "r");
 
     if (fp == NULL) {
-        printf("Error opening file! Make sure the file exists.\n");
-        exit(1);
+        printf("Error: File does not exist or cannot be opened!\n");
+        return 1;
     }
 
     printf("File content:\n");
+
+   
     while ((ch = fgetc(fp)) != EOF) {
-        putchar(ch);
+        putchar(ch);  
     }
 
-    fclose(fp);
-
+    fclose(fp); 
     return 0;
 }
